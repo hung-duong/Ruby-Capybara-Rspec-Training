@@ -1,0 +1,36 @@
+<test_central>
+
+  <test_suite name = "login_and_sublinks">
+    <test_case name = "TC_001_spec">
+      <path>../spec/TC_001_spec.rb</path>
+      <result>../results/TC_001.html</result>
+    </test_case>
+    <test_case name = "TC_002_spec">
+      <path>../spec/TC_002_spec.rb</path>
+      <result>../results/TC_002.html</result>
+    </test_case>
+  </test_suite>
+
+  <test_suite name = "upload_redeem_code">
+    <test_case name = "TC_003_spec">
+      <path>../spec/TC_003_spec.rb</path>
+      <result>../results/TC_003.html</result>
+    </test_case>
+  </test_suite>
+
+  <test_suite name = "run_all">
+    <test_case name = "TC_001_spec">
+      <path>../spec/TC_001_spec.rb</path>
+      <result>../results/TC_001.html</result>
+    </test_case>
+    <test_case name = "TC_002_spec">
+      <path>../spec/TC_002_spec.rb</path>
+      <result>../results/TC_002.html</result>
+    </test_case>
+    <test_case name = "TC_003_spec">
+      <path>../spec/TC_003_spec.rb</path>
+      <result>../results/TC_003.html</result>
+    </test_case>
+  </test_suite>
+
+</test_central>

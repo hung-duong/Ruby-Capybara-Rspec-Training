@@ -1,0 +1,17 @@
+require 'rake'
+require 'rspec/core/rake_task'
+require 'nokogiri'
+
+doc = Nokogiri::XML(File.open('../batch/run_batch.xml'))
+
+doc.xpath('//test_central/test_suite').each do |test_suite|
+  task "#{test_suite.attr('name')}"
+  test_suite.xpath('test_case').each do |test_case|
+    desc "Run #{test_case.attr('name')}"
+    RSpec::Core::RakeTask.new "#{test_case.attr('name')}" do |t|
+      t.pattern = Dir.glob("#{test_case.xpath('path').text}")
+      t.rspec_opts = "-fd -fh -o #{test_case.xpath('result').text}"
+    end
+    Rake::Task["#{test_suite.attr('name')}"].enhance ["#{test_case.attr('name')}"]
+  end
+end
